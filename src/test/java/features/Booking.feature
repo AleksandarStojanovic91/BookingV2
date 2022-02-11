@@ -15,3 +15,4 @@ Feature: Booking
     Examples:
       | row |
       | 1   |
+      | 2   |
