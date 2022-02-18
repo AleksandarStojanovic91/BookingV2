@@ -5,13 +5,13 @@
     <test name="Booking - Book a Stay">
 
         <parameter name="BROWSER" value="CHROME"/>
-        <parameter name="BROWSER_VERSION" value="97"/>
+        <parameter name="BROWSER_VERSION" value="98"/>
         <parameter name="ENV" value="QA"/>
         <parameter name="WAIT" value="10"/>
         
         <classes>
-            <class name="runners.TestNGCucumberRunner"/>
-<!--            <class name="runners.FrameExample"/>-->
+<!--            <class name="runners.TestNGCucumberRunner"/>-->
+            <class name="runners.FrameExample"/>
         </classes>
 
     </test>

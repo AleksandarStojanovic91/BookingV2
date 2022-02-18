@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 @Test
 @CucumberOptions(
-        features = "src/test/java/features/IFrame.feature",
+        features = "src/test/java/features/DragAndDrop2.feature",
         glue = "steps",
         plugin = {"io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"}
 )

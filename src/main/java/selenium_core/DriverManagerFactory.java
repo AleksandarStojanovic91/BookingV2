@@ -12,6 +12,9 @@ public class DriverManagerFactory {
             case "FIREFOX":{
                 driverManager = new FirefoxDriverManager();
             } break;
+            case "C_HEADLESS":{
+                driverManager = new ChromeDriverHeadlessManager();
+            } break;
             default: {
                 throw new Exception("Selected browser not supported: "+browser);
             }

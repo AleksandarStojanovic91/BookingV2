@@ -64,6 +64,10 @@ public class CommonMethods {
         return element.getAttribute("value");
     }
 
+    public void setAttributeValue(WebElement element, String attributeName, String value){
+        ((JavascriptExecutor)driver).executeScript("arguments[0].setAttribute(arguments[1],arguments[2])", element,attributeName,value);
+    }
+
     public void selectByValue(WebElement element, String value){
         WebDriverWait wdWait = new WebDriverWait(driver, waitTime);
         wdWait.until(ExpectedConditions.visibilityOf(element));
@@ -96,4 +100,6 @@ public class CommonMethods {
         actions.moveToElement(element).build().perform();
     }
     //Selenium wrapper methods END
+
+
 }

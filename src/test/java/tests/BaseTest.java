@@ -2,9 +2,7 @@ package tests;
 
 import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import selenium_core.DriverManager;
 import selenium_core.DriverManagerFactory;
 
@@ -57,6 +55,11 @@ public class BaseTest {
             }break;
             default: throw new Exception("ENV: "+env+" Not Supported!");
         }
+    }
+
+
+    public void setAttributeValue(WebElement element, String attributeName, String value){
+        ((JavascriptExecutor)driver).executeScript("arguments[0].setAttribute(arguments[1],arguments[2])", element,attributeName,value);
     }
 
 }
