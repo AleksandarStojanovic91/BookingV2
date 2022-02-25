@@ -1,9 +1,6 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -79,12 +76,36 @@ public class CommonMethods {
 
     }
 
-    public void scroll(WebElement element){
+    public void scrollToElement(WebElement element){
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true)", element);
     }
 
-    public void scroll(String pixels){
-        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,"+pixels+")");
+    public void scrollY(String Ypixels){
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy(0,"+Ypixels+")");
+    }
+
+    public void scrollX(String Xpixels){
+        ((JavascriptExecutor)driver).executeScript("window.scrollBy("+Xpixels+",0)");
+    }
+
+    public void scrollToBottom(){
+        ((JavascriptExecutor)driver).executeScript("window.scrollTo(0,document.body.scrollHeight)");
+    }
+
+    public void slideLR(WebDriver driver, WebElement element, int x){
+        Actions actions = new Actions(driver);
+        actions
+                .dragAndDropBy(element,x,0)
+                .build()
+                .perform();
+    }
+
+    public void dragNDrop(WebElement el1, WebElement el2){
+        Actions actions = new Actions(driver);
+        actions
+                .dragAndDrop(el1,el2)
+                .build()
+                .perform();
     }
 
     public void hoverElement(WebElement element){

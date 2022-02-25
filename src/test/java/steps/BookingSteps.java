@@ -8,9 +8,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Reporter;
-import pages.SearchResultPage;
-import pages.StaysPage;
+import pages.*;
 import tests.BaseTest;
 
 import java.io.IOException;
@@ -35,8 +35,8 @@ public class BookingSteps extends BaseTest {
 
     @After
     public void tearDown() throws IOException, InterruptedException {
-        reportScreenshot("end", "screenshot on end or fail");
-        quit();
+//        reportScreenshot("end", "screenshot on end or fail");
+//        quit();
     }
 
     @Given("I load test data from {string} {string} {string}")
@@ -134,5 +134,54 @@ public class BookingSteps extends BaseTest {
         driver.switchTo().defaultContent();
 
         driver.findElement(By.cssSelector("#w3loginbtn")).click();
+    }
+
+    @Given("I am on slider URL")
+    public void iAmOnSliderURL() {
+        driver.get("https://jqueryui.com/slider/#rangemin");
+    }
+
+    @Given("I am on drag and drop URL")
+    public void iAmOnDragAndDropURL() {
+        driver.get("https://demo.guru99.com/test/drag_drop.html");
+    }
+
+    @And("I move slider")
+    public void iMoveSlider() {
+        //Selector elementa koji pomeramo
+        //x,y osa u pixelima
+
+        driver.switchTo().frame(driver.findElement(By.cssSelector(".demo-frame")));
+
+        SliderPage sliderPage = new SliderPage(driver);
+        sliderPage.slidePrice(150);
+
+        driver.switchTo().defaultContent();
+    }
+
+
+    @And("I drag and drop element")
+    public void iDragAndDropElement() {
+        //Element koji pomeramo
+        //Element u koji pomeramo
+        //x,y
+
+        DragNDrop dragNDrop = new DragNDrop(driver);
+        dragNDrop.dropBank();
+    }
+
+    @Given("I am on youtube.com")
+    public void iAmOnYoutubeCom() {
+        driver.get("https://www.youtube.com/");
+    }
+
+    @And("I scroll to the bottom of the page")
+    public void iScrollToTheBottomOfThePage() throws InterruptedException {
+        Thread.sleep(5000);
+        BasePage basePage = new BasePage(driver);
+//        basePage.scrollToBottom();
+//        basePage.scrollY("300");
+//        takeScreenshot();
+//        basePage.scrollToElement(driver.findElements(By.xpath("//div[@id=\"contents\"]//*[@class='style-scope ytd-rich-grid-row']")).get(17));
     }
 }
