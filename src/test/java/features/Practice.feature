@@ -4,6 +4,10 @@ Feature: Slider and Drag and Drop
 #    Given I am on slider URL
 #    And I move slider
 
+  Scenario: Youtube Scroll
+    Given I am on youtube.com
+    And I scroll to the bottom of the page
+
 #  Scenario: Slider
 #    Given I am on drag and drop URL
 #    And I drag and drop element
