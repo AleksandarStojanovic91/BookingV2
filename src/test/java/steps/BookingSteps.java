@@ -36,7 +36,7 @@ public class BookingSteps extends BaseTest {
     @After
     public void tearDown() throws IOException, InterruptedException {
 //        reportScreenshot("end", "screenshot on end or fail");
-//        quit();
+        quit();
     }
 
     @Given("I load test data from {string} {string} {string}")
