@@ -69,6 +69,9 @@
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                         -Dcucumber.options="--plugin io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"
                     </argLine>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>Runner.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
                 <dependencies>
                     <dependency>
